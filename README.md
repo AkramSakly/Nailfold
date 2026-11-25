@@ -8,6 +8,10 @@
 [![PyTorch](https://img.shields.io/badge/PyTorch-EfficientNet--B0%20%7C%20U--Net-EE4C2C?logo=pytorch&logoColor=white)](https://pytorch.org/)
 [![scikit-learn](https://img.shields.io/badge/scikit--learn-grouped%20CV-F7931E?logo=scikitlearn&logoColor=white)](https://scikit-learn.org/)
 
+<img src="docs/images/segmentation_examples.png" alt="Capillaroscopy images, ground-truth capillary masks and U-Net predictions" width="560">
+
+<sub>U-Net capillary segmentation on validation images. Left: input image, middle: ground-truth mask, right: prediction.</sub>
+
 </div>
 
 ---
@@ -42,7 +46,14 @@ This Master's project (VIBOT, Computer Vision, 2026) reproduces and critically a
 | SE-NFCNet (single EfficientNet) | 0.697 | 0.700 | 0.736 | 0.709 | 0.717 |
 | CC-NFCNet (CNN from scratch) | 0.410 | 0.000 | 0.000 | 0.000 | 0.450 |
 
-Leave-subject-out prediction on every image (each subject scored by the model that never saw it): **25/30 correct (0.833)**.
+<p align="center"><img src="docs/images/model_comparison.png" alt="Bar chart comparing CE, SE and CC-NFCNet on five metrics" width="720"></p>
+
+Leave-subject-out prediction on every image (each subject scored by the model that never saw it): **25/30 correct (0.833)**, pooled ROC-AUC 0.882.
+
+<p align="center">
+  <img src="docs/images/confusion_matrix.png" alt="Confusion matrix: 11 and 14 correct, 2 and 3 errors" width="340">
+  <img src="docs/images/roc_curve.png" alt="Pooled ROC curve, AUC 0.882" width="340">
+</p>
 
 The paper's ranking **CE > SE > CC** is reproduced: the deeper the transfer learning, the better the result on a tiny dataset. The model trained from scratch collapses to a single class.
 
@@ -111,6 +122,7 @@ classification/
 └── plot_comparison.py          # comparison bar chart
 segmentation/
 └── train_unet.py               # U-Net, BCE + Dice loss, IoU / Dice, example predictions
+docs/images/                    # figures from the project report
 ```
 
 ## Authors
