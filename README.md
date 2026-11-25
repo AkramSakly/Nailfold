@@ -25,12 +25,12 @@ This project, carried out during my Research Master's in Computer Vision (Univer
 
 | Task | Model | Metric | Score |
 |---|---|---|---|
-| Capillary segmentation | ResNet-based encoder (PyTorch) | Dice | **0.85** |
-| Capillary segmentation | ResNet-based encoder (PyTorch) | IoU | **0.74** |
+| Capillary segmentation | ResNet-based model (PyTorch) | Dice | **0.85** |
+| Capillary segmentation | ResNet-based model (PyTorch) | IoU | **0.74** |
 
 ## Methods
 
-- **Backbone**: ResNet convolutional networks in PyTorch, used for both the classifier and as the encoder of the segmentation network.
+- **Backbone**: ResNet convolutional networks in PyTorch, used for both the classification and the segmentation models.
 - **Segmentation metrics**: Dice coefficient and Intersection over Union (IoU) on held-out images.
 
 ## Status
